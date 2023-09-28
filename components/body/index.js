@@ -5,8 +5,8 @@ const Body = () => {
     const bodyWorldRef = useRef(null)
     const [ping, setPing] = useState({ top: 0, left: 0 })
     function generateRandomValues() {
-        const randomTop = Math.floor(Math.random() * ((bodyWorldRef.current?.clientHeight - bodyWorldRef.current?.clientHeight / 2 - 100) || 100)); // Rastgele bir "top" değeri üretir
-        const randomLeft = Math.floor(Math.random() * (bodyWorldRef.current?.clientWidth + 100 || 100)); // Rastgele bir "left" değeri üretir
+        const randomTop = Math.floor(Math.random() * ((bodyWorldRef.current?.clientHeight - bodyWorldRef.current?.clientHeight / 2 - 100) || 100));
+        const randomLeft = Math.floor(Math.random() * (bodyWorldRef.current?.clientWidth + 100 || 100));
 
         return { top: randomTop, left: randomLeft };
     }
@@ -34,9 +34,9 @@ const Body = () => {
 
                 </div>
 
-                <div className="w-full  absolute top-60   text-center">
+                <div className="w-full  absolute top-60  text-center">
                     <div className='text-5xl leading-normal font-medium text-transparent bg-clip-text bg-gradient-to-r from-primary via-primary via-[45%] to-primary/20'>Enchanted by Translation</div>
-                    <div className='-mt-2 text-5xl leading-normal font-medium text-transparent bg-clip-text bg-gradient-to-r from-primary via-primary via-[45%] to-primary/20'>in Webtoon's Tongue!</div>
+                    <div className='-mt-2 text-5xl leading-normal font-medium text-transparent bg-clip-text bg-gradient-to-r from-primary via-primary via-[45%] to-primary/20'>in Webtoon&apos;s Tongue!</div>
                     <div className='opacity-50 font-medium mt-2'>Translate webtoons into the language you want.</div>
                     <div className='mt-16'>
                         <button className='shadow-sm bg-gradient-to-br from-constructive/60 to-constructive rounded-xl px-5 py-2.5 text-secondary transition-all active:scale-95 hover:opacity-75'>Get started</button>
