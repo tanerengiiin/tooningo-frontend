@@ -4,7 +4,7 @@ import React from 'react'
 const Navbar = () => {
     return (
         <nav className=" z-50 sticky top-5  w-full   ">
-            <div className='flex items-center max-w-lg  bg-background/75 backdrop-blur-md justify-between border border-border/75 rounded-xl px-5 py-3.5 mx-auto'>
+            <div className='flex items-center max-w-lg  bg-background/75 backdrop-blur-md justify-between border border-border/75 rounded-xl px-4 h-[48px] mx-auto'>
                 <div className="flex items-center space-x-4">
                     <Link href={"/"} className="font-bold bg-clip-text text-transparent bg-gradient-to-r from-constructive/10 to-constructive">
                         <svg
@@ -35,6 +35,7 @@ const Navbar = () => {
                     <Link href={"/translate"} className="text-sm opacity-90 outline-none hover:opacity-75 transition-all tracking-tight">
                         Translate
                     </Link>
+                    <button className='shadow-sm bg-gradient-to-br from-constructive/60 to-constructive rounded-lg px-2.5 py-1 text-sm text-secondary transition-all active:scale-95 hover:opacity-75'>Login</button>
                 </div>
             </div>
         </nav>

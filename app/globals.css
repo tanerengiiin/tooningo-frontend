@@ -10,6 +10,16 @@ body{
   -webkit-tap-highlight-color: rgba(0,0,0,0);
   background-color: white;
 }
+::-moz-selection { /* Code for Firefox */
+  color: white;
+  background: #eb5cb28c;
+}
+
+::selection {
+  color: white;
+  background: #eb5cb28c;
+}
+
 input{
   font-family: 'Inter','__Inter_e7970e', '__Inter_Fallback_e7970e', sans-serif !important;
 }
