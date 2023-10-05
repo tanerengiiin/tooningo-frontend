@@ -73,6 +73,18 @@ background: #c4c4c4;
 
 @layer base {
   :root {
+    --form-button-primary-normal: #5f57ff;
+    --form-button-primary-pressed: #5f57ff;
+    --form-button-destructive-normal: #df1c41;
+    --form-button-destructive-pressed: #df1c41;
+    --form-button-constructive-normal: 	#E976BB;
+    --form-button-constructive-pressed: 	#E976BB;
+    --neutral-solid-700: #272835;
+    --text-muted-600: #36394a;
+    --background-white: #ffffff;
+    --text-white: #ffffff;
+
+
     --background: 0 0% 100%;
     --foreground: 0 0% 8%;
 
@@ -100,7 +112,7 @@ background: #c4c4c4;
     --destructive: 0 84% 60%;
     --destructive-foreground: 210 40% 98%;
 
-    --constructive:324 70% 65%;
+    --constructive:324 72% 69%;
     --constructive-foreground: 0 0% 97%;
 
     --ring:  0 0% 88%;
