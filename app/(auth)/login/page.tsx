@@ -21,7 +21,7 @@ const LoginPage = () => {
             </svg>
             <span className="font-medium ml-1">Continue with Google</span>
           </Button>
-          <p className="text-[0.6rem] opacity-75 leading-3 mt-1.5">By clicking "Continue with Google", you acknowledge that you have read and understood, and agree to Tooningo's <Link className="hover:underline" href={"/terms"}>Terms of Use</Link> and <Link className="hover:underline" href={"/privacy"}>Privacy Policy</Link>.</p>
+          <p className="text-[0.6rem] opacity-75 leading-3 mt-1.5">By clicking &quot;Continue with Google&quot;, you acknowledge that you have read and understood, and agree to Tooningo&apos;s <Link className="hover:underline" href={"/terms"}>Terms of Use</Link> and <Link className="hover:underline" href={"/privacy"}>Privacy Policy</Link>.</p>
         </div>
       </div>
     </div>
