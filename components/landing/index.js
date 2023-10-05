@@ -36,7 +36,7 @@ const Landing = () => {
                     </div>
                 </div>
                 <div className="w-full  absolute top-[13rem]  text-center">
-                    <a href='https://www.webtoons.com' target='_blank' className='group flex items-center mx-auto mb-6'>
+                    <a href='https://www.webtoons.com' target='_blank' className='group flex items-center mx-auto mb-6 w-fit'>
                         <Badge variant={"white"} className=' py-1 mx-auto text-sm'>
                             <Badge variant={"pink"} className='mr-2.5'>
                                 <SparklesIcon className="h-3.5 w-3.5 mr-0.5" />
