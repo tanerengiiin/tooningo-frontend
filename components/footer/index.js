@@ -25,8 +25,8 @@ const Footer = () => {
                 </Link>
                 <div className='text-sm opacity-90'>Translate Webtoons. Read Easily.</div>
             </div>
-            <div className='flex items-center text-sm [&>a]:opacity-75 [&>a:active]:scale-90 [&>a]:transition-all [&>a:hover]:opacity-100 [&>a:hover]:underline justify-center space-x-10 w-full'>
-                <Link href={"/login"}>Log In</Link>
+            <div className='flex flex-col space-y-10 md:space-y-0 md:flex-row md:space-x-10 items-center text-sm [&>a]:opacity-75 [&>a]:text-center [&>a:active]:scale-90 [&>a]:transition-all [&>a:hover]:opacity-100 [&>a:hover]:underline justify-center  w-full'>
+                <Link href={"/login"} >Log In</Link>
                 <Link href={"/privacy"}>How it works</Link>
                 <Link href={"/privacy"}>Privacy Policy</Link>
                 <Link href={"/terms"}>Terms of Use</Link>
