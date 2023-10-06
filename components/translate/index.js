@@ -1,8 +1,6 @@
 "use client"
-import Image from 'next/image'
 import React, { useRef, useState } from 'react'
-import WebtoonFile from "@/public/WebtoonFile.png"
-import { Check, ChevronsUpDown, MoveRight, Link, X, Loader2, Circle } from "lucide-react"
+import { X, Loader2, Circle, Check } from "lucide-react"
 import {
     Command,
     CommandEmpty,
@@ -18,11 +16,16 @@ import {
 import { languages } from "@/lib/languages"
 import { cn } from '@/lib/utils'
 import { Badge } from '../ui/badge'
-import { BoltIcon, XCircleIcon, XMarkIcon } from "@heroicons/react/24/solid";
+import { BoltIcon } from "@heroicons/react/24/solid";
 import { Separator } from '../ui/separator'
 import { Button } from '../ui/button'
 import { LinkIcon, LanguageIcon } from "@heroicons/react/20/solid";
-
+import {
+    Tooltip,
+    TooltipContent,
+    TooltipProvider,
+    TooltipTrigger,
+} from "@/components/ui/tooltip"
 
 
 const TranslateClient = () => {
@@ -30,10 +33,7 @@ const TranslateClient = () => {
     const [selectedLanguage, setSelectedLanguage] = useState(null)
     const [openPopover, setOpenPopover] = useState(false);
     const [link, setLink] = useState(null)
-    const [language, setLanguage] = useState(null)
-    const [file, setFile] = useState(null)
     const [linkChecked, setLinkChecked] = useState(true)
-    const [inputFocused, setInputFocused] = useState(false)
     const checkLink = (link) => {
         const isLinkCorrect = link.includes("www.webtoons.com");
         setLinkChecked(isLinkCorrect);
@@ -117,8 +117,8 @@ const TranslateClient = () => {
             <div className='flex flex-col items-center justify-center relative
          mt-16 mx-auto max-w-4xl bg-gradient-to-b from-constructive/5 via-constructive/10 to-constructive/5 border border-constructive/10 rounded-2xl min-h-[400px] px-4 py-10 md:px-10 md:py-12'>
                 <div className='opacity-80 absolute right-6 bottom-6 md:bottom-8 md:right-8 flex items-center space-x-2'>
-                    <span className='text-sm font-medium opacity-75'>{((link&&linkChecked)&&(selectedLanguage))?"2":"1"}/2</span>
-                    <span>{((link&&linkChecked)&&(selectedLanguage))?<Circle className='w-4 h-4 text-constructive'/>:<Loader2 className='w-4 h-4 text-constructive'/>}</span>
+                    <span className='text-sm font-medium opacity-75'>{((link && linkChecked) && (selectedLanguage)) ? "2" : "1"}/2</span>
+                    <span>{((link && linkChecked) && (selectedLanguage)) ? <Circle className='w-4 h-4 text-constructive' /> : <Loader2 className='w-4 h-4 text-constructive' />}</span>
                 </div>
                 <div className=''>
                     <Badge variant={"white"} className='text-sm font-medium px-1 py-0.5 '>
@@ -135,9 +135,19 @@ const TranslateClient = () => {
                             <Badge variant={"pink"} className='w-fit'><LinkIcon className='w-3 h-3 mr-1' /> Link</Badge>
                             <Badge variant={"purple"} className='w-fit'>Only Webtoons.com</Badge>
                         </div>
-                        {!!link && <div>
-                            <Badge variant={"default"} className='w-fit'>{linkChecked ? <Check className='w-3.5 h-3.5' /> : <X className='w-3.5 h-3.5' />}</Badge>
-                        </div>}
+                        {!!link && <TooltipProvider>
+                            <Tooltip delayDuration={100}>
+                                <TooltipTrigger asChild>
+                                    <div>
+                                        <Badge variant={"default"} className='w-fit'>{linkChecked ? <Check className='w-3.5 h-3.5' /> : <X className='w-3.5 h-3.5' />}</Badge>
+                                    </div>
+                                </TooltipTrigger>
+                                <TooltipContent side='bottom'>
+                                    <p>{linkChecked?"Your link looks correct.":"Enter link from webtoons.com"}</p>
+                                </TooltipContent>
+                            </Tooltip>
+                        </TooltipProvider>}
+
                     </div>
                     <input type='link' placeholder='Type link' value={link} onChange={handleInput} className='mt-4 outline-none border-none w-full flex-1' />
                 </div>
