@@ -6,7 +6,7 @@ import { cn } from "@/lib/utils";
 
 
 const buttonVariants = cva(
-  `
+  `disabled:opacity-50 disabled:pointer-events-none
   group flex items-center justify-center min-w-[105px] h-8 rounded-lg p-0 border-0 cursor-pointer relative outline-1 outline outline-transparent outline-offset-2 transition-all duration-150 bg-gradient-to-b from-white/[0.16] to-white/0 bg-[var(--neutral-solid-700)] shadow-[0_0px_0px_1px_var(--neutral-solid-700),0_1px_2px_0px_rgba(13,13,18,0.4)] 
   before:content-[""] before:w-full before:h-full before:absolute before:rounded-lg before:top-0 before:left-0 before:bg-[var(--form-button-stroke)] before:bg-gradient-to-b before:from-white/[0.28] before:to-white/0 
   after:content-[""] after:w-[calc(100%-2px)] after:h-[calc(100%-2px)] after:absolute after:top-[1px] after:left-[1px] after:rounded-[7px] after:bg-gradient-to-b after:from-white/[0.09] after:to-white/0 after:bg-[var(--neutral-solid-700)]

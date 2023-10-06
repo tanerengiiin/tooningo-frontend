@@ -4,7 +4,7 @@ import { ChevronRightIcon } from "@heroicons/react/24/solid";
 
 const Navbar = () => {
     return (
-        <nav className=" z-50 sticky top-5  w-full   ">
+        <nav className=" z-50 sticky top-5  w-full px-2 ">
             <div className='flex items-center max-w-lg  bg-background/75 backdrop-blur-md justify-between border border-border/75 rounded-xl px-4 h-[48px] mx-auto'>
                 <Link href={"/"} className="font-bold bg-clip-text text-transparent bg-gradient-to-r from-constructive/10 to-constructive flex items-center space-x-3">
                     <svg
@@ -28,10 +28,10 @@ const Navbar = () => {
                     </span>
                 </Link>
                 <div className="flex items-center space-x-4">
-                    <button className="text-sm opacity-100 outline-none hover:opacity-75 transition-all tracking-normal">
+                    <button className="hidden sm:block text-sm opacity-100 outline-none hover:opacity-75 transition-all tracking-normal">
                         How it works
                     </button>
-                    <Link href={"/translate"} className="text-sm opacity-100 outline-none hover:opacity-75 transition-all tracking-normal">
+                    <Link href={"/translate"} className="hidden sm:block text-sm opacity-100 outline-none hover:opacity-75 transition-all tracking-normal">
                         Translate
                     </Link>
                     <Link href={"/login"} className="text-sm opacity-100 outline-none hover:opacity-75 transition-all tracking-normal inline-flex items-center space-x-0.5">

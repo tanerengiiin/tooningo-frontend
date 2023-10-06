@@ -3,7 +3,7 @@ import React from 'react'
 
 const Footer = () => {
     return (
-        <footer className='pb-64 pt-20 flex flex-col items-center space-y-16'>
+        <footer className='pb-32 pt-20 flex flex-col items-center space-y-16'>
             <div className='flex flex-col items-center space-y-6'>
                 <Link href={"/"} className="font-bold bg-clip-text text-transparent bg-gradient-to-r from-constructive/10 to-constructive">
                     <svg
@@ -23,7 +23,7 @@ const Footer = () => {
                         />
                     </svg>
                 </Link>
-                <div className='text-sm opacity-80'>Translate Webtoons. Read Easily.</div>
+                <div className='text-sm opacity-90'>Translate Webtoons. Read Easily.</div>
             </div>
             <div className='flex items-center text-sm [&>a]:opacity-75 [&>a:active]:scale-90 [&>a]:transition-all [&>a:hover]:opacity-100 [&>a:hover]:underline justify-center space-x-10 w-full'>
                 <Link href={"/login"}>Log In</Link>
