@@ -63,7 +63,7 @@ const Promotion = () => {
                             <Command className='rounded-lg p-0'>
                                 <CommandInput placeholder="Search language..." />
                                 <CommandEmpty >No language found.</CommandEmpty>
-                                <CommandGroup className='[&>div]:grid [&>div]:grid-cols-2 items-start overflow-auto styled-scrollbar-8'>
+                                <CommandGroup className='[&>div]:grid [&>div]:lg:grid-cols-2 [&>div]:grid-cols-1 items-start overflow-auto styled-scrollbar-8'>
                                     {languages.map((language) => (
                                         <CommandItem
                                             key={language.name}
@@ -74,7 +74,7 @@ const Promotion = () => {
                                         >
                                             <span><Check
                                                 className={cn(
-                                                    "mr-2 h-4 w-4",
+                                                    "mr-0.5 h-3.5 w-3.5",
                                                     selectedLanguage === language.name ? "opacity-100" : "opacity-0"
                                                 )}
                                             /></span>
