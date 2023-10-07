@@ -1,6 +1,6 @@
 "use client"
 import React, { useRef, useState } from 'react'
-import { X, Loader2, Circle, Check } from "lucide-react"
+import { X, Loader2, Circle, Check, Loader2Icon, XIcon } from "lucide-react"
 import {
     Command,
     CommandEmpty,
@@ -26,6 +26,7 @@ import {
     TooltipProvider,
     TooltipTrigger,
 } from "@/components/ui/tooltip"
+import Link from 'next/link'
 
 
 const TranslateClient = () => {
@@ -34,6 +35,12 @@ const TranslateClient = () => {
     const [openPopover, setOpenPopover] = useState(false);
     const [link, setLink] = useState(null)
     const [linkChecked, setLinkChecked] = useState(true)
+    const [loading, setLoading] = useState(false);
+    const [translatedFile, setTranslatedFile] = useState(null);
+    const [alert, setAlert] = useState({
+        variant: "",
+        content: ""
+    })
     const checkLink = (link) => {
         const isLinkCorrect = link.includes("webtoons.com");
         setLinkChecked(isLinkCorrect);
@@ -42,8 +49,35 @@ const TranslateClient = () => {
         setLink(e.target.value);
         checkLink(e.target.value);
     }
+    const handleTranslate = (e) => {
+        if (link && linkChecked && selectedLanguage) {
+            setLoading(true);
+            setAlert(prev => ({
+                ...prev,
+                variant: "",
+                content: "Please wait, this might take a moment."
+            }))
+            setTimeout(() => {
+                setLoading(false);
+                setAlert(prev => ({
+                    ...prev,
+                    variant: "",
+                    content: ""
+                }))
+                setTranslatedFile({})
+            }, 5000);
+        }
+    }
+    const clearInput = () => {
+        setLink("");
+        setLinkChecked(false);
+        setLoading(false);
+        setOpenPopover(false);
+        setSelectedLanguage(null);
+        setTranslatedFile(null)
+    }
     return (
-        
+
         <div className={`
         mx-2`}>
             <div className='flex flex-col items-center justify-center relative
@@ -75,20 +109,20 @@ const TranslateClient = () => {
                                     </div>
                                 </TooltipTrigger>
                                 <TooltipContent side='bottom'>
-                                    <p>{linkChecked?"Your link looks correct.":"Enter link from webtoons.com"}</p>
+                                    <p>{linkChecked ? "Your link looks correct." : "Enter link from webtoons.com"}</p>
                                 </TooltipContent>
                             </Tooltip>
                         </TooltipProvider>}
 
                     </div>
-                    <input type='link' placeholder='Type link' value={link} onChange={handleInput} className='mt-4 outline-none border-none w-full flex-1' />
+                    <input disabled={loading} type='link' placeholder='Type link' value={link} onChange={handleInput} className='disabled:cursor-not-allowed mt-4 outline-none border-none w-full flex-1' />
                 </div>
                 <Separator orientation='vertical' className='h-[32px]' />
                 <div ref={languageBoxRef} data-disabled={(!link || !linkChecked)} className='relative data-[disabled=true]:opacity-50 data-[disabled=true]:w-3/5   transition-all  data-[disabled=true]:pointer-events-none bg-background rounded-xl px-6 pt-4 pb-6 border-border/70 border w-full md:w-4/5 shadow-sm flex flex-col '>
                     <Badge variant={"pink"} className='w-fit'><LanguageIcon className='w-3 h-3 mr-1' />Language</Badge>
                     <Popover open={openPopover} onOpenChange={setOpenPopover} className="w-full flex-1">
                         <PopoverTrigger asChild>
-                            <button className={` relative mt-4 outline-none border-none w-full  text-left cursor-text whitespace-nowrap overflow-hidden text-ellipsis`}>
+                            <button disabled={loading} className={`disabled:cursor-not-allowed relative mt-4 outline-none border-none w-full  text-left cursor-text whitespace-nowrap overflow-hidden text-ellipsis`}>
                                 {selectedLanguage
                                     ? selectedLanguage
                                     : "Select language..."}
@@ -101,6 +135,7 @@ const TranslateClient = () => {
                                 <CommandGroup className='[&>div]:grid [&>div]:grid-cols-2 items-start overflow-auto styled-scrollbar-8'>
                                     {languages.map((language) => (
                                         <CommandItem
+                                            disabled={loading}
                                             key={language.name}
                                             onSelect={(currentValue) => {
                                                 setSelectedLanguage(language.name);
@@ -124,10 +159,29 @@ const TranslateClient = () => {
                 </div>
 
                 <Separator orientation='vertical' className='h-[40px]' />
-                <Button disabled={!link || !linkChecked || !selectedLanguage} variant={"default"}>Translate</Button>
+                {!translatedFile ? <Button onClick={handleTranslate} disabled={loading || !link || !linkChecked || !selectedLanguage} variant={"default"}>{!!loading && <Loader2Icon className='w-3.5 h-3.5 animate-spin mr-1.5' />}{loading ? "Translating" : "Translate"}</Button>
+                    : <div className='border-t border-border flex items-center pt-4 px-4'>
+                        <Link href={"/preview"} target='_blank'><Button variant={"purple"}>Preview</Button></Link>
+                        <Button className='mx-4'>Download</Button>
+                        <TooltipProvider>
+                            <Tooltip delayDuration={100}>
+                                <TooltipTrigger asChild>
+                                    <div>
+                                        <Button variant={"white"} onClick={clearInput} className='min-w-0 w-8 h-8 rounded-full'><XIcon className='w-4 h-4' /></Button>
+                                    </div>
+                                </TooltipTrigger>
+                                <TooltipContent sideOffset={12} side='bottom'>
+                                    <p>You can clear the inputs and translate again.</p>
+                                </TooltipContent>
+                            </Tooltip>
+                        </TooltipProvider>
+                    </div>}
+                <div className={`mt-4 text-xs opacity-80 transition-all duration-200 ${!!(alert.variant === "destructive") && "text-[--form-button-destructive-normal] opacity-90"}`}>{alert.content}</div>
             </div>
         </div >
     )
 }
 
 export default TranslateClient
+
+//--form-button-destructive-normal

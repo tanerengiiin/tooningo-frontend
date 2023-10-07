@@ -9,6 +9,7 @@ body{
   -moz-osx-font-smoothing: grayscale;
   -webkit-tap-highlight-color: rgba(0,0,0,0);
   background-color: white;
+  scroll-behavior: smooth;
 }
 ::-moz-selection { /* Code for Firefox */
   color: white;
