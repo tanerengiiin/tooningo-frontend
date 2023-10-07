@@ -26,7 +26,7 @@ const Landing = () => {
         return () => clearInterval(interval);
     }, [bodyWorldRef]);
     return (
-        <div>
+        <div className='min-h-[900px] md:min-h-[320px]'>
             <div className="w-full relative mt-4">
                 <div className="w-full  absolute top-10 left-1/2 -translate-x-1/2 overflow-hidden flex items-center justify-center">
                     <div ref={bodyWorldRef} id='body__world' className='w-[100%] md:w-3/4 pb-[100%] md:pb-[75%] mx-auto rounded-full border-t-2 border-border/75 overflow-hidden relative'>
