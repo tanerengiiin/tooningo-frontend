@@ -28,9 +28,9 @@ const Navbar = () => {
                     </span>
                 </Link>
                 <div className="flex items-center space-x-4">
-                    <button className="hidden sm:block text-sm opacity-100 outline-none hover:opacity-75 transition-all tracking-normal">
+                    <Link href={"/#howitworks"} className="hidden sm:block text-sm opacity-100 outline-none hover:opacity-75 transition-all tracking-normal">
                         How it works
-                    </button>
+                    </Link>
                     <Link href={"/translate"} className="hidden sm:block text-sm opacity-100 outline-none hover:opacity-75 transition-all tracking-normal">
                         Translate
                     </Link>

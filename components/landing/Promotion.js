@@ -16,14 +16,14 @@ import {
     PopoverTrigger,
 } from "@/components/ui/popover"
 import { languages } from '@/lib/languages'
-import { Check } from 'lucide-react'
+import { ArrowRight, Check } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { Button } from '../ui/button'
 const Promotion = () => {
     const languageBoxRef = useRef(null)
     const [selectedLanguage, setSelectedLanguage] = useState(null)
     return (
-        <div className='max-w-7xl mx-auto space-y-4 px-4'>
+        <div className='max-w-7xl mx-auto space-y-6 px-4'>
             <div className='mb-10'>
                 <Badge variant={"white"} className='text-sm font-medium px-1 py-0.5 '>
                     <span className='opacity-75 flex items-center'>
@@ -32,10 +32,10 @@ const Promotion = () => {
                     </span>
                 </Badge>
             </div>
-            <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[40%_1fr] gap-4'>
+            <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[40%_1fr] gap-6'>
                 <div className='relative overflow-hidden
-        bg-gradient-to-b from-constructive/10  to-constructive/20 border border-constructive/10 rounded-2xl h-[440px] px-4 py-10 md:px-10 md:py-12 w-full'>
-                    <h1 className='text-2xl font-bold opacity-70'>Get webtoon link from Webtoons.com</h1>
+        bg-gradient-to-b from-constructive/10  to-constructive/20 border border-constructive/10 rounded-2xl h-[450px] px-4 py-10 md:px-10 md:py-12 w-full'>
+                    <h1 className='text-2xl font-bold opacity-70'>Get webtoon link from <a href='https://www.webtoons.com' target='_blank' className='hover:underline transition-all'>Webtoons.com</a></h1>
                     <div className='bg-background rotate-1 rounded-xl px-4 pt-4 pb-2 border-border/70 border w-full mt-4 relative z-20 shadow-md flex flex-col transition-all'>
                         <div className='flex items-center justify-between'>
                             <div className='flex space-x-2 items-center'>
@@ -43,14 +43,14 @@ const Promotion = () => {
                                 <Badge variant={"purple"} className='w-fit'>Only Webtoons.com</Badge>
                             </div>
                         </div>
-                        <input type='link' placeholder='Type link' value={"https://www.webtoons.com/en/fantasy/corpse-knight-gunther/episode-40-season-2-premiere/viewer?title_no=5032&episode_no=40"} className='mt-4 outline-none border-none w-full flex-1' />
+                        <input readOnly type='link' placeholder='Type link' value={"https://www.webtoons.com/en/fantasy/corpse-knight-gunther/episode-40-season-2-premiere/viewer?title_no=5032&episode_no=40"} className='mt-4 outline-none border-none w-full flex-1' />
                     </div>
                     <div className='absolute  -bottom-10 -right-40 -rotate-12 z-10'>
                         <Image className='object-contain rounded-lg w-[600px] h-auto shadow-md border border-primary/5' sizes='100vw' src={"https://cdn.discordapp.com/attachments/785843635748732959/1160129662798798918/image.png?ex=653389f1&is=652114f1&hm=7e593b554e78543eb1608d525ec3d2388ac143e39f03ad879b39d87ffc56e18d&"} width={0} height={0} />
                     </div>
                 </div>
                 <div className='relative
-        bg-gradient-to-r from-constructive/10  to-constructive/20 border border-constructive/10 rounded-2xl h-[440px] px-4 py-10 md:px-10 md:py-12 w-full'>
+        bg-gradient-to-r from-constructive/10  to-constructive/20 border border-constructive/10 rounded-2xl h-[450px] px-4 py-10 md:px-10 md:py-12 w-full'>
                     <h1 className='text-2xl font-bold opacity-70' >Choose the language you will translate</h1>
                     <div ref={languageBoxRef} className='relative  transition-all  data-[disabled=true]:pointer-events-none bg-background mt-6 lg:mt-12 rounded-xl px-4 pt-4 pb-2 border-border/70 border w-1/2 shadow-sm flex flex-col '>
                         <Badge variant={"pink"} className='w-fit'><LanguageIcon className='w-3 h-3 mr-1' />Language</Badge>
@@ -102,15 +102,26 @@ const Promotion = () => {
                     </div>
                 </div>
             </div>
-            <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[1fr_40%] gap-4'>
-                <div className='
-        bg-gradient-to-tl from-constructive/10  to-constructive/20 border border-constructive/10 rounded-2xl h-[440px] px-4 py-10 md:px-10 md:py-12 w-full'>
+            <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[1fr_40%] gap-6'>
+                <div className=' overflow-hidden
+        bg-gradient-to-tl from-constructive/10  to-constructive/20 border border-constructive/10 rounded-2xl h-[450px] px-4 py-10 md:px-10 md:py-12 w-full'>
                     <h1 className='text-2xl font-bold opacity-70'>View the translated webtoon</h1>
-
-
+                    <div className='flex items-center justify-center space-x-8 mt-4'>
+                        <div className='w-[160px] relative'>
+                        <Badge variant={"purple"} className='w-fit absolute -top-1 -right-1'>Korean</Badge>
+                            <Image src={"https://cdn.discordapp.com/attachments/785843635748732959/1160169935784394832/image_8.png?ex=6533af73&is=65213a73&hm=4deebf7379dd7ea960b14f18fa1ef0dbf4fe07c10741c91da162eeaa0b0743cb&"} alt='aa' width={0} height={0} className='w-full h-auto rounded-lg border border-border/60 shadow-sm' sizes='100vw' />
+                        </div>
+                        <div>
+                            <ArrowRight className='w-10 h-10 opacity-75'/>
+                        </div>
+                        <div className='w-[160px] relative'>
+                        <Badge variant={"purple"} className='w-fit absolute -top-1 -right-1'>English</Badge>
+                            <Image src={"https://cdn.discordapp.com/attachments/785843635748732959/1160169935364948120/image_9.png?ex=6533af73&is=65213a73&hm=db1816e9d4e7dae554281a71fd066d0df9aff21bc62ed80ca250cb95b7c2c93c&"} alt='aa' width={0} height={0} className='w-full h-auto rounded-lg border border-border/60 shadow-sm' sizes='100vw' />
+                        </div>
+                    </div>
                 </div>
                 <div className='
-        bg-gradient-to-bl from-constructive/10  to-constructive/20 border border-constructive/10 rounded-2xl h-[440px] px-4 py-10 md:px-10 md:py-12 w-full'>
+        bg-gradient-to-bl from-constructive/10  to-constructive/20 border border-constructive/10 rounded-2xl h-[450px] px-4 py-10 md:px-10 md:py-12 w-full'>
                     <h1 className='text-2xl font-bold opacity-70'>Or download</h1>
                     <div className='bg-background rounded-xl px-4 pt-4 pb-2 border-border/70 border w-full relative z-20 shadow-md flex flex-col transition-all mt-10'>
                         <div className='flex items-center justify-between'>
@@ -118,9 +129,9 @@ const Promotion = () => {
                                 <Badge variant={"pink"} className='w-fit'><FolderIcon className='w-3 h-3 mr-1' /> File</Badge>
                             </div>
                         </div>
-                        <input type='link' placeholder='Type filename' value={""} className='mt-4 outline-none border-none w-full flex-1' />
-                    </div>                        
-                <Button className='mt-20 mx-auto [&>span]:text-lg h-12 px-4'>Download File</Button>                           
+                        <input readOnly type='link' placeholder='Type filename' value={"Solo Max-Level Newbie"} className='mt-4 outline-none border-none w-full flex-1' />
+                    </div>
+                    <Button className='mt-20 mx-auto [&>span]:text-lg h-12 px-4'>Download File</Button>
                 </div>
             </div>
         </div>

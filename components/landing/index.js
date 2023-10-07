@@ -38,7 +38,7 @@ const Landing = () => {
                     </div>
                 </div>
                 <div className="w-full  absolute top-[10rem] md:top-[13rem]  text-center">
-                    <a href='https://www.webtoons.com' target='_blank' className='group flex items-center mx-auto mb-10 w-fit'>
+                    <Link href='/#howitworks' className='group flex items-center mx-auto mb-10 w-fit'>
                         <Badge variant={"white"} className='px-[-4px] py-0.5 mx-auto text-sm'>
                             <Badge variant={"pink"} className='mr-2.5'>
                                 <SparklesIcon className="h-3.5 w-3.5 mr-0.5" />
@@ -47,12 +47,12 @@ const Landing = () => {
                             <span className='font-medium opacity-90 inline-flex items-center space-x-2'><span>Supports Webtoons.com</span> <Separator orientation="vertical" className='hidden md:block h-[16px] w-[2px] opacity-75' /> <span className='hidden md:inline-flex opacity-60  items-center space-x-1'>Learn more <ChevronRight className='w-4 h-4' /></span></span>
 
                         </Badge>
-                    </a>
+                    </Link>
                     <h1 className='text-3xl md:text-5xl  font-medium text-transparent bg-clip-text bg-gradient-to-r from-primary via-primary via-[45%] to-primary/20'>Enchanted by Translation</h1>
                     <h1 className=' text-3xl md:text-5xl  font-medium text-transparent bg-clip-text bg-gradient-to-r from-primary via-primary via-[45%] to-primary/20'>in Webtoon&apos;s Tongue!</h1>
                     <p className='text-sm md:text-base mt-4'>Translate webtoons into the language you want.</p>
                     <Link href={"/translate"} className=''><Button variant={"pink"} className='px-2 h-9 text-base mx-auto rounded-lg mt-16'>Get started</Button></Link>
-                    <div className='mt-[240px]'>
+                    <div id='howitworks' className='mt-[150px] pt-[90px]'>
                         <Promotion />
                     </div>
 
