@@ -1,5 +1,5 @@
 "use client"
-import React, { useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { X, Loader2, Circle, Check, Loader2Icon, XIcon } from "lucide-react"
 import {
     Command,
@@ -27,9 +27,13 @@ import {
     TooltipTrigger,
 } from "@/components/ui/tooltip"
 import Link from 'next/link'
+import { useAuthContext } from '@/context/AuthContext'
+import { useRouter } from 'next/navigation'
 
 
 const TranslateClient = () => {
+    const { user, loading: userLoading } = useAuthContext()
+    const router = useRouter()
     const languageBoxRef = useRef(null)
     const [selectedLanguage, setSelectedLanguage] = useState(null)
     const [openPopover, setOpenPopover] = useState(false);
@@ -50,7 +54,7 @@ const TranslateClient = () => {
         checkLink(e.target.value);
     }
     const handleTranslate = (e) => {
-        if (link && linkChecked && selectedLanguage) {
+        if (user && link && linkChecked && selectedLanguage) {
             setLoading(true);
             setAlert(prev => ({
                 ...prev,
@@ -75,6 +79,22 @@ const TranslateClient = () => {
         setOpenPopover(false);
         setSelectedLanguage(null);
         setTranslatedFile(null)
+    }
+    useEffect(() => {
+        if (!userLoading) {
+            if (user == null) {
+                router.push("/login")
+            }
+        }
+    }, [user, userLoading])
+    if (userLoading) {
+        return (
+            <div className={`
+        mx-2`}>
+                <div className='flex flex-col items-center justify-center relative animate-pulse
+         mt-16 mx-auto max-w-4xl bg-gradient-to-b from-constructive/5 via-constructive/10 to-constructive/5 border border-constructive/10 rounded-2xl min-h-[400px] px-4 py-10 md:px-10 md:py-12'></div>
+            </div>
+        )
     }
     return (
 

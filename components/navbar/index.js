@@ -1,7 +1,6 @@
 import Link from 'next/link'
 import React from 'react'
-import { ChevronRightIcon } from "@heroicons/react/24/solid";
-
+import UserLog from "./UserLog"
 const Navbar = () => {
     return (
         <nav className=" z-50 sticky top-5  w-full px-2 ">
@@ -34,11 +33,8 @@ const Navbar = () => {
                     <Link href={"/translate"} className="hidden sm:block text-sm opacity-100 outline-none hover:opacity-75 transition-all tracking-normal">
                         Translate
                     </Link>
-                    <Link href={"/login"} className="text-sm opacity-100 outline-none hover:opacity-75 transition-all tracking-normal inline-flex items-center space-x-0.5">
-                        <span>Log in</span>
-                        <ChevronRightIcon className="h-3.5 w-3.5 " />
-
-                    </Link>
+                    
+                    <UserLog/>
                 </div>
             </div>
         </nav>

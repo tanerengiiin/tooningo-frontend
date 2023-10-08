@@ -1,7 +1,15 @@
+"use client"
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import React from "react";
+import login from "@/firebase/auth/login"
+import { useRouter } from "next/navigation";
 const LoginPage = () => {
+  const router=useRouter()
+  const handleSignIn=async()=>{
+    await login()
+    router.push("/translate")
+  }
   return (
     <div className="w-[100vw] h-[100vh] flex items-center justify-center ">
       <div className=" max-w-[440px] space-y-6 mx-4 px-6 pt-6 pb-6 border-constructive/30 border rounded-xl bg-gradient-to-br from-constructive/10 via-constructive/5 via-[50%] to-constructive/20">
@@ -9,7 +17,7 @@ const LoginPage = () => {
         <p className="text-3xl text-primary font-semibold pointer-events-auto leading-tight">
             <span className="opacity-70">Not Just in Language, But in Emotion Too.</span> <span className="opacity-80">Webtoons<a href={"https://www.youtube.com/watch?v=lags8E4hvow"} target="_blank">.</a></span></p>
         <div>
-          <Button variant="pink" className=' w-full h-12'>
+          <Button onClick={handleSignIn} variant="pink" className=' w-full h-12'>
           <svg
             className="w-3.5 h-3.5 text-secondary"
               xmlns="http://www.w3.org/2000/svg"
